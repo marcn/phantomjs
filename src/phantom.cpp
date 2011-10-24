@@ -218,6 +218,17 @@ void Phantom::exit(int code)
     QApplication::instance()->exit(code);
 }
 
+void Phantom::sleep(int ms)
+{
+    QTime startTime = QTime::currentTime();
+    while (true) {
+        QApplication::processEvents(QEventLoop::AllEvents, 25);
+        if (startTime.msecsTo(QTime::currentTime()) > ms)
+            break;
+    }
+}
+
+
 // private slots:
 void Phantom::printConsoleMessage(const QString &message, int lineNumber, const QString &source)
 {

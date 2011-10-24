@@ -75,6 +75,7 @@ public slots:
     QString loadModuleSource(const QString &name);
     bool injectJs(const QString &jsFilePath);
     void exit(int code = 0);
+    void sleep(int ms);
 
 private slots:
     void printConsoleMessage(const QString &msg, int lineNumber, const QString &source);
